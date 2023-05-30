@@ -39,6 +39,7 @@ notesRouter.post("/add", auth, async (req, res) => {
 notesRouter.patch("/update/:id", auth, async (req, res) => {
   const ID = req.params.id;
   const payload = req.body;
+  console.log("payload")
   try {
     await NotesModel.findByIdAndUpdate({ _id: ID }, payload);
     res.send({ msg: `Notes with ID: ${ID} has been updated successfully` });
